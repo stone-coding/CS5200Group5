@@ -65,7 +65,5 @@
 
 ---
 
-### **5. Enjoy the Program!**  
-Explore the application functionalities, including managing apartments, handling lease agreements, tracking rent payments, and more.  
+### **5. Project Structure!**  
 
-Feel free to customize and expand the project for your needs!
