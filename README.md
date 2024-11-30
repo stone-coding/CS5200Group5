@@ -14,22 +14,29 @@
 1. **Download SQL Management Tool:**  
    - Install Navicat Premium or any other preferred SQL management tool.  
 2. **Connect to GCP:**  
-   - Use the SQL management tool to connect to your MySQL database hosted on GCP.  
+   - Use the SQL management tool to connect to your MySQL database hosted on GCP.
+![NaviCatGCP](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222147.png)
 3. **Upload the `rent` Database File:**  
    - Copy the provided `rent` SQL file to your GCP database instance.  
    - Execute the file to set up the database structure and populate sample data.  
 4. **Verify Database Setup:**  
-   - Log in to your GCP SQL instance and ensure all tables and sample data are correctly configured.  
+   - Log in to your GCP SQL instance and ensure all tables and sample data are correctly configured.
+![GCPInCloud](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222250.png)
 
 ---
 
 ### **2. Frontend and Backend Setup**  
 1. **Install IntelliJ IDEA:**  
-   - Download and install IntelliJ IDEA (Community or Ultimate Edition).  
+   - Download and install IntelliJ IDEA (Ultimate Edition).
+![UltimateIDE](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222346.png)
 2. **Set Up Java:**  
    - Install Java 8 and configure it in IntelliJ.  
 3. **Install Tomcat:**  
-   - Download and set up Tomcat 9 (Tomcat 8 or 10 may also work, but 9 is recommended for compatibility).  
+   - Download and set up Tomcat 9 (Tomcat 8 or 10 may also work, but 9 is recommended for compatibility).
+![IDEInterface](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222358.png)
+![TomCat1](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222409.png)
+![ProjectStructure1](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222500.png)
+![ProjectStructure2](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222511.png)
 4. **Configure the Project:**  
    - Import the project into IntelliJ.  
    - Navigate to the `db.properties` file under the `src` directory and configure your database connection:  
