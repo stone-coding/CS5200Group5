@@ -68,4 +68,4 @@
 ### **5. Project Structure**  
 ![Structure1](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221117.png)
 ![Structure2](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221126.png)
-![Structure3](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221138.pngg)
+![Structure3](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221138.png)
