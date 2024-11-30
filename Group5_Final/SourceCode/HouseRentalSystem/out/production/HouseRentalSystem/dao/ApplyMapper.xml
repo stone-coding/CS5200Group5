@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ApplyMapper">
+
+
+<!-- id="ApplyUserlistResultMap" unique for resultMap in mybatis which used for select below-->
+
+    <!--        first id is xml id, it helps mybatis to find a column as pk in database-->
+    <!--        second id is java object from Pojo.Apply it helps map column="id" to private Integer id;-->
+    <!--        third id is database id in apply table,it will be assigned to Java object id-->
+
+
+    <!--        result maps simple property like int,string,data...-->
+
+    <!--        The <association> tag is used to map columns from a database table -->
+    <!--        to another object property in a Java object, suitable for one-to-one relationships.-->
+    <!--        This means that the property mapped by <association> is a complex object, not a simple data type. -->
+    <!--        Within <association>, you must specify a resultMap, which defines how to map the query results to -->
+    <!--        the properties of that complex object. association maps-->
+    <resultMap type="Pojo.Apply" id="ApplyUserlistResultMap">
+
+        <id property="id" column="id" />
+        <result property="house_id" column="house_id" />
+        <result property="address" column="address" />
+        <result property="area" column="area" />
+        <result property="price" column="price" />
+        <result property="userlist_id" column="userlist_id" />
+        <result property="status" column="status" />
+
+        <association property="userlist" resultMap="userlistResultMap" />
+    </resultMap>
+
+    <resultMap type="Pojo.Userlist" id="userlistResultMap">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="idcard" column="idcard" />
+        <result property="phone" column="phone" />
+        <result property="user_id" column="user_id" />
+    </resultMap>
+
+
+    <insert id="insertapply" parameterType="Pojo.Apply">
+        insert into apply(house_id, address, price, area, status, userlist_id)
+        values (#{house_id}, #{address}, #{price}, #{area}, #{status}, #{userlist_id})
+    </insert>
+
+    <select id="findapplylist" resultMap="ApplyUserlistResultMap">
+        SELECT a.*,
+               u.*
+        FROM apply a
+                 JOIN `userlist` u ON u.id = a.userlist_id
+    </select>
+
+<!--id can be used as findbyhouse_id function in java-->
+<!--    parameterType is function type-->
+<!--    resultType is type mapper java object-->
+<!--    &#45;&#45;         left house_id must be same as in sql table, right one is a placeholder to store house_id again to prevent sql injection-->
+    <select id="findbyhouse_id" parameterType="string" resultType="Pojo.Apply">
+        select *
+        from apply
+        where house_id = #{house_id}
+    </select>
+
+
+    <delete id="deletebyhouse_id" parameterType="String">
+        delete
+        from apply
+        where house_id = #{house_id}
+    </delete>
+</mapper>

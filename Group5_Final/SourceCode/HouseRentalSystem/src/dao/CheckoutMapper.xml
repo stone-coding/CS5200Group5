@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.CheckoutMapper" >
+
+	<resultMap id="checkoutResultMap" type="Pojo.Checkout">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="house_id" property="house_id" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="userlist_id" property="userlist_id" jdbcType="INTEGER" />
+		<association property="userlist" javaType="Pojo.Userlist" resultMap="UserlistResultMap" />
+	</resultMap>
+	<resultMap id="UserlistResultMap" type="Pojo.Userlist">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="idcard" property="idcard" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="user_id" property="user_id" jdbcType="INTEGER" />
+	</resultMap>
+   <insert id="insertcheckout" parameterType="Pojo.Checkout">
+	  insert into checkout(house_id,address,userlist_id,status) 
+	  values(#{house_id},#{address},#{userlist_id},#{status})
+	</insert>
+	<select id="getallcheckout" resultMap="checkoutResultMap" >
+		SELECT
+	c.*, u.*
+FROM
+	`checkout` c
+LEFT JOIN userlist u ON u.id = c.userlist_id
+	</select>
+	<delete id="deletecheckout" parameterType="Integer" >
+		delete from checkout where id=#{id}
+	</delete>
+  </mapper>
+
+		<!--	When to use `javaType`: Use `javaType` when you need to explicitly inform MyBatis about the specific Java type of-->
+		<!--	a property or parameter, especially when the type cannot be automatically inferred from the context.-->
+
+		<!--	When to use `jdbcType`: Use `jdbcType` when writing SQL mappings, particularly when database operations might-->
+		<!--	involve handling null values or when data types are not clear. Utilizing `jdbcType` can help MyBatis interact -->
+		<!--	more accurately with the database.-->

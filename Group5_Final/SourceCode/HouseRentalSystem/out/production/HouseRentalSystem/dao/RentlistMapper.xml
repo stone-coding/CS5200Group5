@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.RentlistMapper" >
+	<resultMap id="userlistrentResultMap" type="Pojo.Rentlist" >
+		<id column="rentid" property="rentid" jdbcType="INTEGER" />
+		<result column="house_id" property="house_id" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+
+		<result column="contract_id" property="contract_id" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="DOUBLE" />
+		<result column="userlist_id" property="userlist_id" jdbcType="INTEGER" />
+		<association property="userlist" javaType="Pojo.Userlist">
+			<!-- column:userlist表的主键对应的列  property：userlist对象中id属性-->
+			<id column="id" property="id"/>
+			<result column="name" property="name" jdbcType="VARCHAR" />
+			<result column="idcard" property="idcard" jdbcType="VARCHAR" />
+			<result column="phone" property="phone" jdbcType="VARCHAR" />
+			<result column="user_id" property="user_id" jdbcType="INTEGER" />
+		</association>
+	</resultMap>
+
+	<insert id="insertrentlist" parameterType="Pojo.Rentlist">
+		insert into rentlist(house_id,price,address,userlist_id,contract_id)
+		values(#{house_id},#{price},#{address},#{userlist_id},#{contract_id})
+	</insert>
+	<select id="findrentlistbyuid" parameterType="Integer" resultMap="userlistrentResultMap">
+		SELECT
+			z.*,
+			u.*
+		FROM
+			rentlist z
+				JOIN `userlist` u ON u.id = z.userlist_id and u.id=#{userlist_id}
+	</select>
+	<select id="findtenantrentlist" parameterType="Integer" resultMap="userlistrentResultMap">
+		SELECT
+			z.*,
+			u.*
+		FROM
+			rentlist z
+				JOIN `userlist` u ON u.id = z.userlist_id and z.rentid=#{id}
+	</select>
+	<select id="findrentuserlist" resultMap="userlistrentResultMap">
+		SELECT
+			z.*,
+			u.*
+		FROM
+			rentlist z
+				JOIN `userlist` u ON u.id = z.userlist_id
+	</select>
+	<select id="findrentlist" resultType="Pojo.Rentlist" parameterType="String">
+		SELECT * FROM
+			rentlist WHERE house_id =#{house_id}
+	</select>
+	<delete id="deleterentlist" parameterType="String" >
+		delete from rentlist where house_id=#{house_id}
+	</delete>
+</mapper>

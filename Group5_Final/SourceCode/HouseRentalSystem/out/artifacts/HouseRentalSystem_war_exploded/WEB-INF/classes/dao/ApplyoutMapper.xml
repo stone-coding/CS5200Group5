@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ApplyoutMapper" >
+
+
+	<resultMap type="Pojo.Applyout" id="applyoutResultMap">
+		<id property="id" column="id" />
+		<result property="house_id" column="house_id" />
+		<result property="address" column="address" />
+		<result property="status" column="status" />
+		<result property="userlist_id" column="userlist_id" />
+		<collection property="userlist" ofType="Pojo.Userlist"  javaType="List">
+			<id property="id" column="id" />
+			<result property="name" column="name" />
+			<result property="idcard" column="idcard" />
+			<result property="phone" column="phone" />
+			<result property="user_id" column="user_id" />
+		</collection>
+	</resultMap>
+
+  <select id="findbyid" resultType="Pojo.Applyout" parameterType="Integer">
+	select * from applyout where id=#{id}
+	</select>
+  <select id="findallapplyout" resultMap="applyoutResultMap">
+		SELECT
+	a.*, u.*
+    FROM
+	`applyout` a
+LEFT JOIN userlist u ON u.id = a.userlist_id
+
+	</select>
+	<select id="getByHouseIdAndUserIdAndStatus" resultType="Pojo.Applyout">
+		select * from applyout where house_id=#{house_id} and userlist_id=#{userlist_id} and status!=#{status}
+	</select>
+	<insert id="insertapplyout" parameterType="Pojo.Applyout">
+	  insert into applyout(house_id,address,status,userlist_id) 
+	  values(#{house_id},#{address},#{status},#{userlist_id})
+	</insert>
+	<update id="updateapplyout" parameterType="Pojo.Applyout">
+		update applyout set status=#{status}
+		where id=#{id}
+</update>
+<update id="updateapplyoutbyhouse" parameterType="Pojo.Applyout">
+		update applyout set status=#{status}
+		where house_id=#{house_id}
+</update>
+<delete id="deleteapplyout" parameterType="Integer" >
+		delete from applyout where id=#{id}
+	</delete>
+  </mapper>
+
+		<!--		a user can have multiple applications, but an application can only have one user-->
+		<!--		In MyBatis configuration, the `<collection>` tag is used to handle one-to-many relationships in database query results, -->
+		<!--		mapping these results to a collection attribute in a Java object. The `<collection>` tag indicates that there is -->
+		<!--		a property within the parent object that is a collection (list) type, containing multiple child objects. -->
+		<!--		ofType="Pojo.Userlist"：defines type of each element in userlist-->

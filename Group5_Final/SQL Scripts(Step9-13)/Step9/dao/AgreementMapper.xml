@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.AgreementMapper" >
+    <resultMap id="BaseResultMap" type="Pojo.Agreement" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="house_id" property="house_id" jdbcType="VARCHAR" />
+        <result column="lease" property="lease" jdbcType="VARCHAR" />
+        <result column="lease_idcard" property="lease_idcard" jdbcType="VARCHAR" />
+        <result column="price" property="price" jdbcType="DOUBLE" />
+        <result column="tenant" property="tenant" jdbcType="VARCHAR" />
+        <result column="tenant_idcard" property="tenant_idcard" jdbcType="VARCHAR" />
+        <result column="fromdate" property="fromdate" jdbcType="VARCHAR" />
+        <result column="todate" property="todate" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="payday" property="payday" jdbcType="INTEGER" />
+    </resultMap>
+    <select id="findagreement" parameterType="String" resultType="Pojo.Agreement">
+        select * from agreement where house_id=#{house_id}
+    </select>
+    <insert id="insertagreement" parameterType="Pojo.Agreement">
+        insert into agreement(house_id,address,payday,price,lease,lease_idcard,tenant,tenant_idcard,fromdate,todate)
+        values(#{house_id},#{address},#{payday},#{price},#{lease},#{lease_idcard},#{tenant},#{tenant_idcard},#{fromdate},#{todate})
+    </insert>
+    <update id="updateagreement" parameterType="Pojo.Agreement">
+        update agreement set address=#{address},payday=#{payday},price=#{price},lease=#{lease},lease_idcard=#{lease_idcard},
+                             tenant=#{tenant},tenant_idcard=#{tenant_idcard},fromdate=#{fromdate},todate=#{todate}
+        where house_id=#{house_id}
+    </update>
+    <delete id="deleteagreement" parameterType="String" >
+        delete from agreement where house_id=#{house_id}
+    </delete>
+</mapper>
