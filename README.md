@@ -65,5 +65,7 @@
 
 ---
 
-### **5. Project Structure!**  
-
+### **5. Project Structure**  
+![ER Diagram](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221117.png)
+![ER Diagram](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221126.png)
+![ER Diagram](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221138.pngg)
