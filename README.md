@@ -82,5 +82,7 @@
 
 
 ### **6. Web Interface**
+- Admin
 - ![Admins](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225456.png)
+- User
 - ![Users](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225439.png)
