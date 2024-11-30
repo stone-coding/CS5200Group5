@@ -56,7 +56,8 @@
 ### **3. Browser Usage Tips**  
 - Open **two different browsers** (e.g., Chrome and Edge).  
 - Use one browser for **admin** access and the other for **tenant** access.  
-- Do **not** use the same browser for both admin and tenant logins, as session conflicts may occur, causing the application to crash.  
+- Do **not** use the same browser for both admin and tenant logins, as session conflicts may occur, causing the application to crash.
+- Once user terminated a lease, the admin must delete the lease history to keep the next lease not crash.
 
 ---
 
