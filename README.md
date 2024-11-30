@@ -18,7 +18,7 @@
 ![NaviCatGCP](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222147.png)
 3. **Upload the `rent` Database File:**  
    - Copy the provided `rent` SQL file to your GCP database instance.  
-   - Execute the file to set up the database structure and populate sample data.  
+   - Execute the file to set up the database structure and populate sample data(rent.sql).  
 4. **Verify Database Setup:**  
    - Log in to your GCP SQL instance and ensure all tables and sample data are correctly configured.
 ![GCPInCloud](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20222250.png)
