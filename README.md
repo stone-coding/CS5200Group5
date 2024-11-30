@@ -57,7 +57,9 @@
 - Open **two different browsers** (e.g., Chrome and Edge).  
 - Use one browser for **admin** access and the other for **tenant** access.  
 - Do **not** use the same browser for both admin and tenant logins, as session conflicts may occur, causing the application to crash.
+- ![TwoBrowswer](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225334.png)
 - Once user terminated a lease, the admin must delete the lease history to keep the next lease not crash.
+- ![DeleteLease](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225402.png)
 
 ---
 
@@ -77,3 +79,8 @@
 ![Structure1](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221117.png)
 ![Structure2](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221126.png)
 ![Structure3](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20221138.png)
+
+
+### **6. Web Interface**
+- ![Admins](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225456.png)
+- ![Users](https://github.com/stone-coding/CS5200Group5/blob/main/Group5_Final/imgs/Screenshot%202024-11-29%20225439.png)
